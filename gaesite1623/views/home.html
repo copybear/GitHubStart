@@ -1,0 +1,35 @@
+{{head}}
+    <body>
+        <h1>Home Page</h1>
+        <p>{{greeting}}</p>
+        <form method="post" action="/home.pp">
+		{{table}}
+        <table>
+            <tr>
+            <th>名前：</th>
+            <td><input type="text" name="name" /></td>
+            </tr>
+            <tr>
+            <th>メッセージ：</th>
+            <td><textarea name="msg"></textarea></td>
+            </tr>
+            <tr><th></th>
+            <td><input type="submit" value="送信" /></td></tr>
+        </table>
+        </form>
+        <hr />
+        <table border="1" width="500px">
+        <tr>
+        <th width="350px">メッセージ</th>
+        <th width="150px">送信者</th>
+        </tr>
+        {% for data in datas %}
+        <tr>
+        <td>{{data.message}}<br />
+        ({{data.time}})</td>
+        <td>{{data.name}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

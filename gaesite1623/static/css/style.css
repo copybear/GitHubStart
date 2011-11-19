@@ -1,0 +1,141 @@
+body {
+	padding: 20px;
+	line-height: 120%;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #142D7F;
+	background-color: #B9CFDE;
+}
+/* ボックスレイアウト */
+.layout{
+	display:-webkit-box;
+	display:-moz-box;
+	display:-o-box;
+	display:box;
+	padding:10px;
+}
+
+section{
+	padding:4px;
+	border:#005A96 2px solid;
+	border-radius: 5px 20px 20px 20px;
+	background-color:#99BB77;
+}
+
+h2{
+	font-family: 'Butcherman Caps', cursive;
+	color:#225533;
+}
+h3{
+	font-family: 'Aubrey', cursive;
+	font-size:15pt;
+	
+}
+/* ヘッダ部 */
+header{
+	font-family: 'Gochi Hand', cursive;
+	font-size:40px;
+	width:300px;
+	height:70px;
+	line-height:70px;
+	text-align:center;
+    color:#142D7F;
+    background-color:#FFFFFF;
+    border:#005A96 2px solid;
+	border-radius: 20px 40px 80px 60px;
+	-webkit-border-radius: 20px 40px 80px 60px;
+	-moz-border-radius: 20px 40px 80px 60px;
+	/*
+	border-top-left-radius: 20px;
+	border-top-right-radius: 40px;
+	border-bottom-left-radius: 60px;
+	border-bottom-right-radius: 80px;
+	-webkit-border-top-left-radius: 20px;
+	-webkit-border-top-right-radius: 40px;
+	-webkit-border-bottom-left-radius: 60px;
+	-webkit-border-bottom-right-radius: 80px;
+	-moz-border-radius-topleft: 20px;
+	-moz-border-radius-topright: 40px;
+	-moz-border-radius-bottomleft: 60px;
+	-moz-border-radius-bottomright: 80px;
+	*/
+}
+
+/* メニュー */
+li[class^="origin"] {
+    color:#FFFFFF;
+    border:#005A96 2px solid;
+	border-radius: 20px 20px 20px 40px;
+	-webkit-border-radius: 20px 20px 20px 40px;
+	-moz-border-radius: 20px 20px 20px 40px;
+	
+	width:150px;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	font-family: 'Ubuntu Mono', sans-serif;
+
+	/* 変形開始位置（起点）を要素の左上に設定 */
+	transform-origin:0 0;
+	-webkit-transform-origin:0 0;	/* Safari Chrome用 */
+	-moz-transform-origin:0 0;	/* Firefox用 */
+	-o-transform-origin:0 0;	/* Firefox用 */
+}
+li.menu{
+	color:#B9CFDE;
+    border:#005A96 2px solid;
+	border-radius: 5px 20px 20px 20px;
+	background-color:#142D7F;
+	width:150px;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	font-family: 'Ubuntu Mono', sans-serif;
+	
+}
+
+li.origin1{
+	background-color:#00502D;
+}
+li.origin2{
+	background-color:#7D3400;
+}
+li.origin3{
+	background-color:#737300;
+}
+li.origin4{
+	background-color:#BE1E28;
+}
+li.origin5{
+	background-color:#FAE691;
+}
+
+li[class^="origin"]:hover {
+	width:150px;
+	height:38px;
+		
+	/* 右方向に1.15倍 */
+	transition:-webkit-transform 0.7s ease-in;
+	-webkit-transition:-webkit-transform 0.7s ease-in;
+	-moz-transition:-moz-transform 0.7s ease-in;
+	-o-transition:-o-transform 0.7s ease-in;
+	transform: scale(1.5,1);
+	-webkit-transform: scale(1.5,1);  /* Safari Chrome用 */
+	-moz-transform: scale(1.5,1);  	/* Firefox用 */
+	-o-transform: scale(1.5,1);  	/* Firefox用 */
+}
+
+a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+.origin_ul {
+	list-style:none;
+}
+/*　キャンバス　*/
+canvas[id^="canvas"]{
+	width:300px;
+	height:200px;
+	background-color:#FFFFFF;
+}
