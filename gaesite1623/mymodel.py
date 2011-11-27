@@ -25,3 +25,15 @@ class Urls(db.Model):
 	url = db.StringProperty(multiline=False)
 	target = db.StringProperty(multiline=False)
 	time = db.DateTimeProperty(auto_now_add=True)
+	
+class MyData(db.Model):
+	name = db.StringProperty(required=True,multiline=False)
+	message = db.StringProperty(multiline=True)
+	time = db.DateTimeProperty(auto_now_add=True)
+	def __getitem__(self,_nm):
+		if _nm=="name":
+			return self.name
+		elif _nm=="message":
+			return self.message
+		elif _nm=="time":
+			return self.time.strftime('%Y/%m/%d %H:%M:%S')

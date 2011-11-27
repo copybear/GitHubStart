@@ -2,7 +2,7 @@ body {
 	padding: 20px;
 	line-height: 120%;
 	font-family: Helvetica, Arial, sans-serif;
-	color: #142D7F;
+	color: #142DAC;
 	background-color: #B9CFDE;
 }
 /* ボックスレイアウト */
@@ -13,22 +13,91 @@ body {
 	display:box;
 	padding:10px;
 }
-
-section{
+section.title{
+	font-size:30pt;
+	font-weight:bold;
+	font-family: 'Unkempt', cursive;
+	color:#002177;
+}
+section.contents1{
+	position:absolute;
+	top:100px;
 	padding:4px;
 	border:#005A96 2px solid;
-	border-radius: 5px 20px 20px 20px;
-	background-color:#99BB77;
+	border-radius: 5px 20px 5px 20px;
+	background-color:#FFFFFF;
+	color:#223355;
 }
-
-h2{
-	font-family: 'Butcherman Caps', cursive;
+section.contents2{
+	position:absolute;
+	right:30px;
+	bottom:10px;
+	padding:4px;
+	border:#005A96 2px solid;
+	border-radius: 5px 20px 5px 20px;
+	background-color:#DDEEDD;
 	color:#225533;
+}
+section.contents3{
+	font-size:xx-small;
+	position:absolute;
+	left:30px;
+	top:370px;
+	padding:4px;
+	border:#005A96 2px solid;
+	border-radius: 5px 20px 5px 20px;
+	background-color:#223355;
+	color:#FFFFFF;
+}
+section.header{
+	position:absolute;
+	right:40px;
+	width:300px;
+	padding:4px;
+	text-align:center;
+	color:#9B5555;
+	border:#995366 2px solid;
+	border-radius: 5px 20px 5px 20px;
+	background-color:#FFFFFF;
+}
+a.header{
+	font-size:x-large;
+	font-weight:bold;
+	color:#9B5555;
+}
+th.display{
+	background-color:#FFFFFF;
+	font-family: 'Unkempt', cursive;
+	color:#002177;
+}
+td.display{
+	background-color:#FFFFFF;
+	font-family: 'Unkempt', cursive;
+	color:#002177;
+}
+th.input{
+	background-color:#223366;
+	font-family: 'Unkempt', cursive;
+	color:#FFFFFF;
+}
+td.input{
+	background-color:#223366;
+	font-family: 'Unkempt', cursive;
+	color:#FFFFFF;
+}
+.warning{
+	color:AA2332;
+}
+h2{
+	font-family: 'Aclonica', sans-serif;
 }
 h3{
 	font-family: 'Aubrey', cursive;
 	font-size:15pt;
 	
+}
+img{
+	padding:5px;
 }
 /* ヘッダ部 */
 header{
@@ -126,10 +195,7 @@ li[class^="origin"]:hover {
 	-o-transform: scale(1.5,1);  	/* Firefox用 */
 }
 
-a{
-	color:#FFFFFF;
-	text-decoration:none;
-}
+
 .origin_ul {
 	list-style:none;
 }

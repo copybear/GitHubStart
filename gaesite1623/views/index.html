@@ -1,8 +1,9 @@
 {{head}}
     <body>
-        <h1>Hiro's Test Page!</h1>
+        <section class="title">Hiro's Test Page!</section>
+        <section class="header">{{greeting}}</section>
 		
-		<section style="width:600px;" stype="right:0px">
+		<section class="contents1" style="width:600px;" stype="right:0px">
 			<h2>This page is ...</h2>
 			<div class="layout">
 				<h3>
@@ -10,23 +11,37 @@
 					And this page has purpose as self-introduction.<br/>
 					I study English,HTML5,PYTHON now.<br/>
 					I try to make page in English.<br/>
-					It is very difficult.<br/>
+					This is my face→
 				</h3>
-				<img src="/images/icon/setting.png" />
+				<img src="/images/toppage/daruma.jpf" />
 			</div>
 		</section>
-		<hr>
-		<section style="width:600px;" stype="right:0px">
-			<h2>Do you have google Account?</h2>
+		
+		<section class="contents2" style="width:600px;">
+			<h2>It links to my contents!</h2>
 			<div class="layout">
-				<img src="/images/icon/setting.png" />
 				<h3>
-					You need to Google Account!
-					It is free accoun,and 
+					<ul>
+						<li>
+							<a target="_blank" href ="http://ameblo.jp/copybear/">Ameba BLOG</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://gallery.nikon-image.com/191476691/albums/2716385/">My Picture</a>			
+						</li>
+						<li>
+							{{send}}
+						</li>
+						<li>
+							Create DDL(Oracle)
+						</li>
+					</ul>
+					
 				</h3>
-				
+				<img src="/images/toppage/tori.jpf" />
 			</div>
 		</section>
-        <p>{{greeting}}</p>
+		<section class="contents3" style="width:300px;">
+			{{table}}
+		</section>
     </body>
 </html>

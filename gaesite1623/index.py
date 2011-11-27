@@ -24,25 +24,40 @@ from google.appengine.api import users
 from myutility import htmlFactory
 from mymodel import TableDefine
 from mymodel import Urls
+from mymodel import MyData
 class MainHandler(webapp.RequestHandler):
 	def get(self):
 		user = users.get_current_user() 
 		if user:
-			self.redirect("/home.pp")
-			return
+			greeting = ("Welcome, %s! (<a href=\"%s\">sign out</a>)" %
+			(user.nickname(), users.create_logout_url("/index.pp")))
 		else:
-			greeting = ("<a href=\"%s\">Sign in or register</a>." %
+			greeting = ("Get the <a class='header'' href=\"%s\">login</a> on google account." % 
 			users.create_login_url("/index.pp"))
-			
-			hf = htmlFactory()
-			head = hf.getHtmlHeader("test page!")
+		
+		hf = htmlFactory()
+		head = hf.getHtmlHeader("test page!")
 
-			fpath = os.path.join(os.path.dirname(__file__),'views','index.html')
-			params = {'message':'Please Enter ','greeting':greeting,'head':head}
-			html = template.render(fpath,params)
-			self.response.headers['Content-Type'] = 'text/html'
-			self.response.out.write(html)
-			
+        #tableデータの取得
+		datas = MyData.all().order('-time').fetch(10, 0)		
+		dfs = []
+		dfs.append(TableDefine("time",0,"label"))
+		dfs.append(TableDefine("message",0,"label"))
+		dfs.append(TableDefine("name",0,"label"))
+		table = hf.getDbTable(datas,dfs)
+
+		#メッセージリンク
+		if user: 
+			strMsgLink="<a href='/home.pp'>Send Message!</a>"
+		else:
+			strMsgLink="<span class='warning'>You can not Send Message.</a>"
+
+		fpath = os.path.join(os.path.dirname(__file__),'views','index.html')
+		params = {'message':'Please Enter ','greeting':greeting,'head':head,'table':table,'send':strMsgLink}
+		html = template.render(fpath,params)
+		self.response.headers['Content-Type'] = 'text/html'
+		self.response.out.write(html)
+
 def main():
 	application=webapp.WSGIApplication([('/index.pp',MainHandler)],debug=True)
 	util.run_wsgi_app(application)

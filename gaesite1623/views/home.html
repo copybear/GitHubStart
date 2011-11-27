@@ -1,35 +1,30 @@
 {{head}}
     <body>
-        <h1>Home Page</h1>
-        <p>{{greeting}}</p>
+        <section class="title">Send message for me!</section>
+		<section class="header">
+			{{greeting}}<br/>
+			<a href="index.pp">Return TopPage</a>
+		</section>
         <form method="post" action="/home.pp">
-		{{table}}
+		
+		<section class="contents1" style="width:600px;" stype="right:0px">
         <table>
             <tr>
-            <th>名前：</th>
-            <td><input type="text" name="name" /></td>
+            <th class="input">名前：</th>
+            <td class="input"><input type="text" name="name" value="{{userName}}" readonly="true" /></td>
             </tr>
             <tr>
-            <th>メッセージ：</th>
-            <td><textarea name="msg"></textarea></td>
+            <th class="input">メッセージ：</th>
+            <td class="input"><textarea name="msg"></textarea></td>
             </tr>
             <tr><th></th>
             <td><input type="submit" value="送信" /></td></tr>
         </table>
+		</section>
+
         </form>
-        <hr />
-        <table border="1" width="500px">
-        <tr>
-        <th width="350px">メッセージ</th>
-        <th width="150px">送信者</th>
-        </tr>
-        {% for data in datas %}
-        <tr>
-        <td>{{data.message}}<br />
-        ({{data.time}})</td>
-        <td>{{data.name}}</td>
-        </tr>
-        {% endfor %}
-        </table>
+		<section class="contents3" style="width:300px;">
+			{{table}}
+		</section>
     </body>
 </html>

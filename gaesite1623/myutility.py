@@ -9,27 +9,30 @@ class htmlFactory():
 			<title>""" + _title + """</title>
 			<link rel="stylesheet" href="css/style.css">
 			<script type="text/javascript" src="js/common.js"></script>
-			<link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 			<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:700' rel='stylesheet' type='text/css'>
 			<link href='http://fonts.googleapis.com/css?family=Butcherman+Caps' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Aubrey' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Aubrey' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Unkempt' rel='stylesheet' type='text/css'>
 		</head>
 		"""
 	def getDbTable(self,_db,_dfs):
-		self.str="<table>"
+		self.str="<table class='display'>"
 		# 列ヘッダの設定
-		self.str= self.str + """<tr>"""
+		self.str= self.str + """<tr class='display'>"""
 		for col in _dfs:
 			self.str=self.str + """
-			          <th>""" + col.colName + """</th>
+			          <th class='display'>""" + col.colName + """</th>
 		"""
 		self.str=self.str + """</tr>"""		
 		# データの設定
 		for db in _db:
-			self.str= self.str + """<tr>"""
+			self.str= self.str + """<tr class='display'>"""
 			for col in _dfs:
 				self.str=self.str + """
-				          <td>""" + col.getColContent(db[col.colName]) + """</td>
+				          <td class='display'>""" + col.getColContent(db[col.colName]) + """</td>
 			"""
 			self.str=self.str + """</tr>"""
 		self.str=self.str + """</table>"""

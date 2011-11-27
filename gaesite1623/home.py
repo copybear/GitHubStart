@@ -24,26 +24,29 @@ from google.appengine.api import users
 from myutility import htmlFactory
 from mymodel import TableDefine
 from mymodel import Urls
+from mymodel import MyData
 class MainHandler(webapp.RequestHandler):
 	def get(self):
 		user = users.get_current_user() 
 		if user:
 			greeting = ("Welcome, %s! (<a href=\"%s\">sign out</a>)" %
 			(user.nickname(), users.create_logout_url("/index.pp")))
+			userName=user.nickname()
 		else:
 			self.redirect("/index.pp")
 			return
 		hf = htmlFactory()
 		head = hf.getHtmlHeader("test page!")
-		datas = MyData.all().order('-time').fetch(10, 0)
 		
+		#一覧表示用データの取得
+		datas = MyData.all().order('-time').fetch(10, 0)		
 		dfs = []
 		dfs.append(TableDefine("name",0,"label"))
 		dfs.append(TableDefine("message",0,"label"))
 		dfs.append(TableDefine("time",0,"label"))
 		table = hf.getDbTable(datas,dfs)
-		
-		params = {'datas':datas,'message':'Please Enter ','greeting':greeting,'head':head,'table':table}
+		  
+		params = {'datas':datas,'message':'Please Enter ','greeting':greeting,'head':head,'table':table,'userName':userName}
 		fpath = os.path.join(os.path.dirname(__file__),'views','home.html')
 		html = template.render(fpath,params)
 		self.response.headers['Content-Type'] = 'text/html'
@@ -56,17 +59,7 @@ class MainHandler(webapp.RequestHandler):
 		obj.save()
 		self.redirect('/home.pp')
 
-class MyData(db.Model):
-	name = db.StringProperty(required=True,multiline=False)
-	message = db.StringProperty(multiline=True)
-	time = db.DateTimeProperty(auto_now_add=True)
-	def __getitem__(self,_nm):
-		if _nm=="name":
-			return self.name
-		elif _nm=="message":
-			return self.message
-		elif _nm=="time":
-			return self.time.strftime('%Y/%m/%d %H:%M:%S')
+
 
 def main():
 	application=webapp.WSGIApplication([('/home.pp',MainHandler)],debug=True)
